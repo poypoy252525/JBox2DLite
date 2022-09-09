@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 
 public class GameScreen extends JPanel implements Runnable {
 
-    int speed = 1;
+    int speed = 5;
 
     public static final int width = 700, height = 500;
     private Thread thread;
@@ -64,7 +64,7 @@ public class GameScreen extends JPanel implements Runnable {
 
         int num = 12;
 
-        Vec2 x = new Vec2(width * 0.5f - (num * 38.0f) * 0.5f, height - 50);
+        Vec2 x = new Vec2(width * 0.5f - (num * 38.0f) * 0.5f, height - 100);
         Vec2 y;
 
         for (int i = 0; i < num; ++i)
@@ -80,8 +80,7 @@ public class GameScreen extends JPanel implements Runnable {
                 world.add(b);
                 y.add(new Vec2(38.0f, 0.0f));
             }
-            //x += Vec2(0.5625f, 1.125f);
-            x.add(new Vec2(17.5f, -38.0f));
+            x.add(new Vec2(17.5f, -50.0f));
         }
     }
 
