@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 
 public class GameScreen extends JPanel implements Runnable {
 
-    int speed = 5;
+    float speed = 1;
 
     public static final int width = 700, height = 500;
     private Thread thread;
@@ -62,7 +62,7 @@ public class GameScreen extends JPanel implements Runnable {
         b.rotation = 0.0f;
         world.add(b);
 
-        int num = 12;
+        int num = 10;
 
         Vec2 x = new Vec2(width * 0.5f - (num * 38.0f) * 0.5f, height - 100);
         Vec2 y;
@@ -100,19 +100,8 @@ public class GameScreen extends JPanel implements Runnable {
     }
 
     public void create() {
-        world = new World(new Vec2(0, 10), 10);
+        world = new World(new Vec2(0, 30), 10);
 
-//        body = new Body();
-//        body.set(new Vec2(width, 20), Float.MAX_VALUE);
-//        body.position.set(width / 2, height);
-//        world.add(body);
-
-//        for (int i = 0; i < 5; i++) {
-//            body = new Body();
-//            body.set(new Vec2(35, 35), 10);
-//            body.position.set(width / 2, i * 41 + 310);
-//            world.add(body);
-//        }
         demo5(body);
     }
 
@@ -121,12 +110,12 @@ public class GameScreen extends JPanel implements Runnable {
         long last = System.nanoTime();
         double accumulator = 0;
         while (thread != null) {
-            double inv_dt = 1000000000.0 / (60.0f * speed);
+            double inv_dt = 1000000000.0 / (100.0f);
             long current = System.nanoTime();
             accumulator += (current - last);
             last = current;
             while (accumulator >= inv_dt) {
-                world.step(1.0f / 60.0f);
+                world.step(1.0f / 30.0f);
                 accumulator -= inv_dt;
             }
             repaint();

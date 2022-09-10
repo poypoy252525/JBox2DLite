@@ -53,8 +53,7 @@ public class World {
         broadPhase();
 
         // Integrate forces.
-        for (int i = 0; i < bodies.size(); ++i)
-        {
+        for (int i = 0; i < bodies.size(); ++i) {
             Body b = bodies.get(i);
 
             if (b.invMass == 0.0f)
@@ -70,16 +69,14 @@ public class World {
         }
 
         // Perform iterations
-        for (int i = 0; i < iterations; ++i)
-        {
+        for (int i = 0; i < iterations; ++i) {
             for (Arbiter arbiter : arbiters) {
                 arbiter.applyImpulse();
             }
         }
 
         // Integrate Velocities
-        for (int i = 0; i < bodies.size(); ++i)
-        {
+        for (int i = 0; i < bodies.size(); ++i) {
             Body b = bodies.get(i);
 
             b.position.add(multiply(dt, b.velocity));
